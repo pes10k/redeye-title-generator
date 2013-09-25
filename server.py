@@ -4,6 +4,7 @@ import redeye.controllers
 import redeye.newssources
 import tornado
 import tornado.web
+import tornado.httpserver
 
 mongo = config.mongo
 db = motor.MotorClient(mongo['host'], mongo['port']).open_sync()[mongo['database']]
@@ -13,5 +14,6 @@ routes = ((r'/(.*)', redeye.controllers.MainController),)
 
 application = tornado.web.Application(routes, db=db, debug=config.debug,
                                       static_path=config.static_dir)
+
 application.listen(8080)
 tornado.ioloop.IOLoop.instance().start()
