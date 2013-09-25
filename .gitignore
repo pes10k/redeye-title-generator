@@ -1,4 +1,7 @@
 .DS_Store
-.pyc
-.pyo
-.config
+*.pyc
+*.pyo
+config.py
+config.pyc
+config.pyo
+
