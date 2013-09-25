@@ -60,8 +60,8 @@ class MainController(tornado.web.RequestHandler):
 
         replace_esc = re.escape(noun_to_replace)
 
-        new_title = re.sub(replace_esc, tag, doc['title'], flags=re.IGNORECASE)
-        em_title = re.sub(replace_esc, u"<strong>" + tag + u"</strong>", doc['title'], flags=re.IGNORECASE)
+        new_title = re.sub(replace_esc, tag, doc['title'], count=1, flags=re.IGNORECASE)
+        em_title = re.sub(replace_esc, u"<strong>" + tag + u"</strong>", doc['title'], count=1, flags=re.IGNORECASE)
 
         params = {
             "new_title": new_title,
