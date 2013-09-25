@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+
+{% block title %}{{ config.site_title }}{% if selected_news_type %} | {{ selected_news_type }}{% end %}{% end %}
+
+
+{% block body %}
+
+    <h1><a href="{{ news_link }}" target="_blank">{% raw news_title_em %}</a></h1>
+
+    <p class="lead">could be a story about {% raw pop_tags %} with a title in the style of a {% if pop['attribution'] %} <em>{{ pop['attribution'] }}</em> {% end %}<em>{{ pop['type'].lower() }}</em>{% if pop['year'] %} from <em>{{ pop['year'] }}</em>{% end %}.</p>
+
+
+    <dl class="dl-horizontal attributions">
+        <dt>News Story</dt>
+        <dd><a href="{{ news_link }}" target="_blank">{{ news_title }}</a></dd>
+
+        <dt>Pop Reference</dt>
+        <dd>{{ pop_title }}</dd>
+    </dl>
+
+    <p><a class="btn btn-lg btn-success" href="/{{ selected_news_type }}">Another One!</a></p>
+{% end %}
