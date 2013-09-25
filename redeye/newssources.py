@@ -89,7 +89,7 @@ def fetch_news(news_type, callback):
         }
         callback(results)
 
-    if news_type in lookup_times and (datetime.now() - lookup_times[news_type]['time']).seconds < 120:
+    if news_type in lookup_times and (datetime.now() - lookup_times[news_type]['time']).seconds < 300:
         callback(lookup_times[news_type]['results'])
     else:
         source = sources[news_type]()
